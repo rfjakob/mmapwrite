@@ -7,7 +7,7 @@
 #include <sys/mman.h>
 #include <sys/time.h>
 
-int file_size = 1024*1024*100;
+int file_size = 50*1024*1024;
 int block_size = 1024*1024;
 
 static void *x_malloc(int size)
@@ -48,10 +48,11 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-
+	long iteration = 1;
 	while(1) {
 		struct timeval t1, t2;
 		gettimeofday(&t1, NULL);
+		printf("%3d ", iteration);
 		for (int size=0; size<file_size; size += block_size) {
 			memset(p + size, 0xfe, block_size);
 			printf(".");
@@ -59,6 +60,7 @@ int main(int argc, char *argv[])
 		}
 		gettimeofday(&t2, NULL);
 		float deltat = ( t2.tv_sec - t1.tv_sec ) + (t2.tv_usec - t1.tv_usec) / 1000000.0;
-		printf(" %.2f MB/s\n", 100 / deltat);
+		printf(" %6.2f MB/s\n", file_size / ( 1024.0 * 1024.0 ) / deltat);
+		iteration++;
 	}
 }
