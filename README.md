@@ -2,7 +2,8 @@ mmapwrite
 ---------
 
 Simple tool that creates a 50 MiB file, mmaps it, and rewrites it in a
-loop in 1 MiB blocks. One dot in the progress bar is one MiB.
+loop in 1 MiB blocks.
+One dot in the progress bar is one MiB, one line is 50 MiB.
 
 Created to track down performance issues in in the kernel's FUSE
 implementation.
