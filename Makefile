@@ -1,2 +1,2 @@
 mmapwrite: mmapwrite.c
-	gcc mmapwrite.c -o mmapwrite
+	gcc -std=gnu99 -Wall mmapwrite.c -o mmapwrite

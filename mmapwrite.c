@@ -10,16 +10,6 @@
 int file_size = 50*1024*1024;
 int block_size = 1024*1024;
 
-static void *x_malloc(int size)
-{
-	void *ret = malloc(size);
-	if (!ret) {
-		fprintf(stderr,"Out of memory for size %d!\n", size);
-		exit(1);
-	}
-	return ret;
-}
-
 int main(int argc, char *argv[])
 {
 	if(argc != 2) {
@@ -52,7 +42,7 @@ int main(int argc, char *argv[])
 	while(1) {
 		struct timeval t1, t2;
 		gettimeofday(&t1, NULL);
-		printf("%3d ", iteration);
+		printf("%3ld ", iteration);
 		for (int size=0; size<file_size; size += block_size) {
 			memset(p + size, 0xfe, block_size);
 			printf(".");
