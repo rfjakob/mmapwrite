@@ -4,6 +4,8 @@ set -eu
 
 DIR=/tmp/mmapwrite-encfs.$$
 
+make
+
 trap "fusermount -u $DIR/mnt && rm -R $DIR" EXIT
 
 mkdir -p $DIR/mnt
