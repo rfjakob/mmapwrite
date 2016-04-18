@@ -6,8 +6,8 @@ loop in 1 MiB blocks.
 One dot in the progress bar is one MiB, one line is 50 MiB.
 
 Created to track down performance issues in in the kernel's FUSE
-implementation: (linux-kernel thread)[https://lkml.org/lkml/2016/3/16/260],
-(patch that fixes the issue)[https://patchwork.kernel.org/patch/8554181/]
+implementation: [linux-kernel thread](https://lkml.org/lkml/2016/3/16/260),
+[patch that fixes the issue](https://patchwork.kernel.org/patch/8554181/)
 
 Use `./encfs-test.sh` to automatically mount an encfs filesystem into
 a temporary directory and run the test.
