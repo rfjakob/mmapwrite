@@ -6,7 +6,8 @@ loop in 1 MiB blocks.
 One dot in the progress bar is one MiB, one line is 50 MiB.
 
 Created to track down performance issues in in the kernel's FUSE
-implementation.
+implementation: (linux-kernel thread)[https://lkml.org/lkml/2016/3/16/260],
+(patch that fixes the issue)[https://patchwork.kernel.org/patch/8554181/]
 
 Use `./encfs-test.sh` to automatically mount an encfs filesystem into
 a temporary directory and run the test.
@@ -43,8 +44,9 @@ Results by kernel version
 ```
 4.0 ....... 140MB/s permanent
 4.1 ....... 140MB/s permanent
-4.2 ....... 100MB/s at the beginning, sudden slowdown to 1MB/s after ~5GB
-4.3 ....... 100MB/s at the beginning, sudden slowdown to 1MB/s after ~1.5GB
-4.4-rc4 ... 100MB/s at the beginning, slowly ramps down, 0.3MB/s after ~2GB
-4.4 ....... 100MB/s at the beginning, sudden slowdown after ~3GB
+4.2 ....... hangs after ~5GB
+4.3 ....... hangs after ~1.5GB
+4.4-rc4 ... hangs after ~2GB
+4.4 ....... hangs after ~3GB
+4.6-rc3-182-gb9f5dba ... hangs after ~6GB
 ```
