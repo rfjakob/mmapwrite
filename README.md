@@ -7,7 +7,8 @@ One dot in the progress bar is one MiB, one line is 50 MiB.
 
 Created to track down performance issues in in the kernel's FUSE
 implementation: [linux-kernel thread](https://lkml.org/lkml/2016/3/16/260),
-[patch that fixes the issue](https://patchwork.kernel.org/patch/8554181/)
+patch that fixes the issue: [patchwork](https://patchwork.kernel.org/patch/8554181/),
+[Linux commit](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=74d369443325063a5f0260e63971decb950fd8fa).
 
 Use `./encfs-test.sh` to automatically mount an encfs filesystem into
 a temporary directory and run the test.
@@ -49,4 +50,6 @@ Results by kernel version
 4.4-rc4 ... hangs after ~2GB
 4.4 ....... hangs after ~3GB
 4.6-rc3-182-gb9f5dba ... hangs after ~6GB
+?
+4.11.8 .... 140MB/s permanent
 ```
